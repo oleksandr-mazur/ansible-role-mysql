@@ -1,0 +1,21 @@
+---
+# tasks file for mysql
+
+
+- name: Install mysql
+  become: yes
+  # register: install_mysql
+  ansible.builtin.apt:
+    update_cache: yes
+    pkg:
+    - mysql-server{% if mysql_version %}={{ mysql_version }}{% endif %}
+  notify: 
+  - make sure mysql running
+
+
+# - name: Upload elasticsearch config
+#   become: yes
+#   template:
+#     src="templates/etc/mysq/my.cnf.yaml"
+#     dest="/etc/mysql/my.cnf"
+#   notify: mysql restart

@@ -1,0 +1,13 @@
+---
+# handlers file for mysql
+
+- name: make sure mysql running
+  systemd:
+    state: started
+    name: mysql.service
+    enabled: yes
+
+- name: mysql restart
+  ansible.builtin.systemd:
+    state: restarted
+    name: mysql.service

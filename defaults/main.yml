@@ -1,0 +1,5 @@
+---
+# defaults file for mysql
+# command for show available versions
+# apt-cache madison mysql-server
+mysql_version: ""
